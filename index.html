@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Jukebox</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome to Your Personal Jukebox!</h1>
+
+        <!-- Song Buttons -->
+        <div class="song-buttons">
+            <button class="song-btn" onclick="playSong('song1')">Song 1</button>
+            <button class="song-btn" onclick="playSong('song2')">Song 2</button>
+            <button class="song-btn" onclick="playSong('song3')">Song 3</button>
+            <button class="song-btn" onclick="playSong('song4')">Song 4</button>
+        </div>
+
+        <!-- Video Display -->
+        <div class="video-container" id="video-container">
+            <video id="song-video" controls style="display:none;">
+                <source id="video-source" src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Song Request Form -->
+        <div class="song-request">
+            <h2>Request a New Song</h2>
+            <input type="text" id="song-request-input" placeholder="Enter song name">
+            <button onclick="submitRequest()">Request Song</button>
+            <p id="request-feedback"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
