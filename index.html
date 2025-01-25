@@ -11,24 +11,24 @@
 <body>
     <div class="container">
         <header>
-            <h1>Bem-vinda à tua Jukebox Pessoal!</h1>
-            <p>Escolhe a música que queres ouvir</p>
+            <h1>Welcome to Your Personal Jukebox</h1>
         </header>
 
-        <div class="jukebox">
-            <div class="songs">
-                <button class="song-button" data-video="song1.mp4">Música 1</button>
-                <button class="song-button" data-video="song2.mp4">Música 2</button>
-                <button class="song-button" data-video="song3.mp4">Música 3</button>
+        <main class="jukebox-container">
+            <div class="jukebox">
+                <div class="jukebox-buttons">
+                    <button class="song-button" data-video="song1.mp4">Song 1</button>
+                    <button class="song-button" data-video="song2.mp4">Song 2</button>
+                    <button class="song-button" data-video="song3.mp4">Song 3</button>
+                </div>
+                <div class="video-container">
+                    <video id="video-player" controls></video>
+                </div>
             </div>
-
-            <div class="video-container">
-                <video id="video-player" controls></video>
-            </div>
-        </div>
+        </main>
 
         <footer>
-            <p>Want to request a song? Let me know!</p>
+            <p>Want to request a song? Let me know below!</p>
             <form id="song-request-form">
                 <input type="text" id="song-request" placeholder="Enter a song name..." />
                 <button type="submit">Request Song</button>
