@@ -1,45 +1,29 @@
-function playSong(song) {
-    // Define video sources based on the song button clicked
-    let videoSource = '';
-    switch (song) {
-        case 'song1':
-            videoSource = 'videos/song1.mp4';  // Change to your actual file path
-            break;
-        case 'song2':
-            videoSource = 'videos/song2.mp4';  // Change to your actual file path
-            break;
-        case 'song3':
-            videoSource = 'videos/song3.mp4';  // Change to your actual file path
-            break;
-        case 'song4':
-            videoSource = 'videos/song4.mp4';  // Change to your actual file path
-            break;
-        default:
-            videoSource = '';
-    }
+// Handling the song button click to play the corresponding video
+const songButtons = document.querySelectorAll('.song-button');
+const videoPlayer = document.getElementById('video-player');
 
-    // Set the video source and display the video player
-    const videoElement = document.getElementById('song-video');
-    const videoSourceElement = document.getElementById('video-source');
+// Add event listener for each song button
+songButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        const videoFile = e.target.getAttribute('data-video');
+        videoPlayer.src = videoFile; // Update the video source
+        videoPlayer.play(); // Play the video
+    });
+});
 
-    if (videoSource) {
-        videoSourceElement.src = videoSource;
-        videoElement.style.display = 'block';
-        videoElement.load();
-        videoElement.play();
-    }
-}
+// Handling song requests
+const songRequestForm = document.getElementById('song-request-form');
+const songRequestInput = document.getElementById('song-request');
 
-// Song request functionality
-function submitRequest() {
-    const songRequestInput = document.getElementById('song-request-input');
-    const feedback = document.getElementById('request-feedback');
-
+songRequestForm.addEventListener('submit', (e) => {
+    e.preventDefault();
     const requestedSong = songRequestInput.value.trim();
+
     if (requestedSong) {
-        feedback.textContent = `Great choice! Your request for "${requestedSong}" has been received.`;
-        songRequestInput.value = '';  // Clear input field
+        alert(`Song request received for: "${requestedSong}"! I'll try to sing it soon.`);
+        songRequestInput.value = ''; // Clear the input
     } else {
-        feedback.textContent = 'Please enter a song name.';
+        alert('Please enter a song name before submitting.');
     }
-}
+});
+

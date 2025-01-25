@@ -1,81 +1,123 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+/* Resetting margins and padding */
+* {
     margin: 0;
     padding: 0;
-    text-align: center;
+    box-sizing: border-box;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    font-size: 2.5em;
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f0f0f0;
     color: #333;
 }
 
-.song-buttons {
+.container {
+    max-width: 100%;
+    padding: 20px;
+    text-align: center;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #f06d06;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+.jukebox {
     margin: 20px 0;
 }
 
-.song-btn {
-    font-size: 1.2em;
-    margin: 10px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.songs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
 }
 
-.song-btn:hover {
-    background-color: #0056b3;
+.song-button {
+    background-color: #f06d06;
+    color: #fff;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1.2em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.song-button:hover {
+    background-color: #d05d06;
 }
 
 .video-container {
-    margin: 20px 0;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-#song-video {
-    width: 100%;
-    max-width: 600px;
+video {
+    max-width: 100%;
+    max-height: 400px;
+}
+
+footer {
+    margin-top: 30px;
+    background-color: #f06d06;
+    padding: 15px;
     border-radius: 10px;
 }
 
-.song-request {
-    margin-top: 30px;
+footer p {
+    font-size: 1.1em;
+    color: #fff;
 }
 
-#song-request-input {
+#song-request-form {
+    margin-top: 10px;
+}
+
+#song-request {
     padding: 10px;
+    width: 250px;
     font-size: 1em;
-    width: 60%;
-    margin: 10px 0;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
 }
 
-button {
+button[type="submit"] {
     padding: 10px 20px;
     font-size: 1em;
-    background-color: #28a745;
-    color: white;
-    border: none;
+    background-color: #fff;
+    color: #f06d06;
+    border: 2px solid #f06d06;
     border-radius: 5px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #218838;
+button[type="submit"]:hover {
+    background-color: #f06d06;
+    color: #fff;
 }
 
-#request-feedback {
-    margin-top: 10px;
-    font-size: 1.2em;
-    color: green;
+@media (max-width: 600px) {
+    .song-button {
+        width: 100%;
+        font-size: 1.1em;
+    }
+
+    #song-request {
+        width: 70%;
+    }
 }

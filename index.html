@@ -10,31 +10,30 @@
 
 <body>
     <div class="container">
-        <h1>Welcome to Your Personal Jukebox!</h1>
+        <header>
+            <h1>Welcome to Your Personal Jukebox</h1>
+            <p>Choose a song to hear me sing it!</p>
+        </header>
 
-        <!-- Song Buttons -->
-        <div class="song-buttons">
-            <button class="song-btn" onclick="playSong('song1')">Song 1</button>
-            <button class="song-btn" onclick="playSong('song2')">Song 2</button>
-            <button class="song-btn" onclick="playSong('song3')">Song 3</button>
-            <button class="song-btn" onclick="playSong('song4')">Song 4</button>
+        <div class="jukebox">
+            <div class="songs">
+                <button class="song-button" data-video="song1.mp4">Song 1</button>
+                <button class="song-button" data-video="song2.mp4">Song 2</button>
+                <button class="song-button" data-video="song3.mp4">Song 3</button>
+            </div>
+
+            <div class="video-container">
+                <video id="video-player" controls></video>
+            </div>
         </div>
 
-        <!-- Video Display -->
-        <div class="video-container" id="video-container">
-            <video id="song-video" controls style="display:none;">
-                <source id="video-source" src="" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-
-        <!-- Song Request Form -->
-        <div class="song-request">
-            <h2>Request a New Song</h2>
-            <input type="text" id="song-request-input" placeholder="Enter song name">
-            <button onclick="submitRequest()">Request Song</button>
-            <p id="request-feedback"></p>
-        </div>
+        <footer>
+            <p>Want to request a song? Let me know!</p>
+            <form id="song-request-form">
+                <input type="text" id="song-request" placeholder="Enter a song name..." />
+                <button type="submit">Request Song</button>
+            </form>
+        </footer>
     </div>
 
     <script src="script.js"></script>
