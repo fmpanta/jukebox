@@ -1,143 +1,120 @@
-/* Global Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #000000, #1a0033);
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #1e3c72, #2a5298);
     color: #fff;
-    text-align: center;
-    min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .container {
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
 }
 
 header h1 {
     font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #ffcc33;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
-/* Jukebox Layout */
-.jukebox-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.jukebox {
-    background: radial-gradient(circle, #333333, #000000);
+.jukebox-wrapper {
+    background: #111;
+    border-radius: 15px;
     padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);
-    width: 100%;
-    max-width: 600px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.jukebox-arc {
+    background: linear-gradient(to bottom, #ff512f, #dd2476);
+    border-radius: 50% 50% 0 0;
+    padding: 20px;
+    position: relative;
+    box-shadow: inset 0 -10px 15px rgba(0, 0, 0, 0.4);
+}
+
+.jukebox-header {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffe57f;
+    text-shadow: 0 0 10px #ffe57f;
+    margin-bottom: 20px;
 }
 
 .jukebox-buttons {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    justify-items: center;
 }
 
 .song-button {
-    background: linear-gradient(145deg, #ff0000, #ff6600);
+    background: linear-gradient(to bottom, #f39c12, #e74c3c);
     border: none;
     border-radius: 50%;
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: 20px;
     width: 100px;
     height: 100px;
+    font-size: 1rem;
+    color: white;
     cursor: pointer;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8);
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .song-button:hover {
     transform: scale(1.1);
-    background: linear-gradient(145deg, #ff6600, #ff9900);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
 }
 
-.video-container {
-    border: 4px solid #ffcc33;
-    border-radius: 10px;
-    overflow: hidden;
-    width: 100%;
-    max-width: 560px;
-    height: 315px;
-    background: #000;
+.video-display {
+    margin-top: 20px;
+    text-align: center;
 }
 
 video {
     width: 100%;
-    height: 100%;
+    max-width: 600px;
+    border: 5px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* Footer & Song Request */
 footer {
-    margin-top: 30px;
-    background: linear-gradient(145deg, #333333, #111111);
-    padding: 20px;
-    border-radius: 15px;
-    color: #ffcc33;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    margin-top: 20px;
 }
 
 #song-request-form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
+    align-items: center;
 }
 
 #song-request {
+    width: 100%;
+    max-width: 400px;
     padding: 10px;
-    font-size: 1rem;
-    border: 2px solid #ffcc33;
+    border: 2px solid #fff;
     border-radius: 5px;
+    margin-bottom: 10px;
 }
 
-button[type="submit"] {
-    padding: 10px 20px;
-    background: linear-gradient(145deg, #ffcc33, #ffdd55);
+#song-request-form button {
+    background: linear-gradient(to bottom, #27ae60, #2ecc71);
     border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
     border-radius: 5px;
-    color: #333;
-    font-weight: bold;
     cursor: pointer;
+    transition: background 0.2s;
 }
 
-button[type="submit"]:hover {
-    background: linear-gradient(145deg, #ffdd55, #ffee77);
-}
-
-@media (max-width: 600px) {
-    .jukebox-buttons {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .song-button {
-        width: 80px;
-        height: 80px;
-        font-size: 1rem;
-    }
-
-    .video-container {
-        height: 200px;
-    }
+#song-request-form button:hover {
+    background: linear-gradient(to bottom, #2ecc71, #27ae60);
 }
