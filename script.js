@@ -1,29 +1,41 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const songButtons = document.querySelectorAll(".song-button");
-    const videoPlayer = document.getElementById("video-player");
-    const songRequestForm = document.getElementById("song-request-form");
+document.addEventListener('DOMContentLoaded', function () {
+    const songButtons = document.querySelectorAll('.song-button');
+    const videoPlayer = document.getElementById('video-player');
+    const songRequestForm = document.getElementById('song-request-form');
+    const songRequestInput = document.getElementById('song-request');
 
-    // Play the selected song video
+    // Event listener for song selection buttons
     songButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const videoSource = button.getAttribute("data-video");
-            videoPlayer.src = videoSource;
-            videoPlayer.play();
+        button.addEventListener('click', function () {
+            const videoUrl = button.getAttribute('data-video');
+            playSong(videoUrl);
         });
     });
 
-    // Handle song request form submission
-    songRequestForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const requestInput = document.getElementById("song-request");
-        const requestedSong = requestInput.value.trim();
-
-        if (requestedSong) {
-            alert(`Thank you for requesting: ${requestedSong}! We'll add it soon.`);
-            requestInput.value = ""; // Clear the input field
+    // Function to play the selected song in the iframe
+    function playSong(videoUrl) {
+        if (videoUrl.includes('google.com')) {
+            // If it's a Google Drive video, we can use an iframe directly
+            videoPlayer.style.display = 'block';
+            videoPlayer.src = videoUrl;
         } else {
-            alert("Please enter a valid song request.");
+            // For other video types (like MP4), create a video player
+            videoPlayer.style.display = 'block';
+            videoPlayer.src = videoUrl;
+        }
+    }
+
+    // Handle song request form submission
+    songRequestForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const requestedSong = songRequestInput.value.trim();
+        if (requestedSong) {
+            alert(`A nova música solicitada foi: ${requestedSong}`);
+            // Reset the input field
+            songRequestInput.value = '';
         }
     });
 });
+
 

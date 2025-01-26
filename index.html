@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>Your Personal Jukebox</h1>
+            <h1>Jukebox da Inês</h1>
         </header>
         <main class="jukebox-wrapper">
             <div class="jukebox-arc">
@@ -19,20 +19,26 @@
                     <h2>Select a Song</h2>
                 </div>
                 <div class="jukebox-buttons">
-                    <button class="song-button" data-video="song1.mp4">Song 1</button>
+                    <button class="song-button"
+                        data-video="https://drive.google.com/file/d/1Dn8Sm7WICxzD_VbBxpx4CBRQwBYYX8o3/preview">Song
+                        1</button>
                     <button class="song-button" data-video="song2.mp4">Song 2</button>
                     <button class="song-button" data-video="song3.mp4">Song 3</button>
                     <button class="song-button" data-video="song4.mp4">Song 4</button>
                 </div>
             </div>
             <div class="video-display">
-                <video id="video-player" controls></video>
+                <!-- Video player iframe for Google Drive videos -->
+                <iframe id="video-player" style="display: none; width: 100%; height: 400px;" frameborder="0"
+                    allow="autoplay" allowfullscreen>
+                </iframe>
             </div>
         </main>
         <footer>
             <form id="song-request-form">
-                <label for="song-request">Request a new song:</label>
-                <input type="text" id="song-request" placeholder="Type your song request here" required>
+                <label for="song-request">Pede uma música nova:</label>
+                <input type="text" id="song-request" placeholder="Escreve aqui o nome da música que queres que eu toque"
+                    required>
                 <button type="submit">Send</button>
             </form>
         </footer>
