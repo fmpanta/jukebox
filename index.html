@@ -37,12 +37,15 @@
             </div>
         </main>
         <footer>
-            <form id="song-request-form">
-                <label for="song-request">Pede uma música nova:</label>
-                <input type="text" id="song-request" placeholder="Escreve aqui o nome da música que queres que eu toque"
-                    required>
-                <button type="submit">Send</button>
-            </form>
+            <section class="editable-list">
+                <h2>Your Editable List</h2>
+                <p>Edit the list below and I'll receive a notification when changes are made!</p>
+                <!-- Replace the src URL with the published URL of your Google Sheet -->
+                <iframe
+                    src="https://docs.google.com/spreadsheets/d/1Pz17ZaoSVnWcsvGogUSG7QC3Hzi079CL04mcPv71Xd8/edit?usp=drive_link"
+                    style="width: 100%; height: 500px; border: none;">
+                </iframe>
+            </section>
         </footer>
     </div>
     <script src="script.js"></script>

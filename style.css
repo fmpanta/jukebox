@@ -90,32 +90,21 @@ footer {
     margin-top: 20px;
 }
 
-#song-request-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* Editable List Section */
+.editable-list {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-#song-request {
-    width: 100%;
-    max-width: 400px;
-    padding: 10px;
-    border: 2px solid #fff;
-    border-radius: 5px;
+.editable-list h2 {
+    font-size: 1.5rem;
     margin-bottom: 10px;
 }
 
-#song-request-form button {
-    background: linear-gradient(to bottom, #27ae60, #2ecc71);
-    border: none;
-    color: white;
-    padding: 10px 20px;
+.editable-list p {
     font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-#song-request-form button:hover {
-    background: linear-gradient(to bottom, #2ecc71, #27ae60);
+    margin-bottom: 20px;
 }
