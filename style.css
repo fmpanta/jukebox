@@ -106,7 +106,7 @@ footer {
 .editable-list {
     margin-top: 30px;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgb(255 255 255 / 50%);
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
@@ -120,6 +120,7 @@ footer {
 .editable-list p {
     font-size: 1rem;
     margin-bottom: 20px;
+    color: rgb(218, 190, 152);
 }
 
 @media (max-width: 768px) {
