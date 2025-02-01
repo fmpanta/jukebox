@@ -9,7 +9,7 @@ body {
     align-items: center;
     height: 100vh;
     background-image: url('/photos/background.jpeg');
-    background-size: cover;
+    background-size: 150px;
     background-position: center;
     background-repeat: repeat;
 }
@@ -97,7 +97,7 @@ video {
 footer {
     margin-top: 20px;
     background-image: url(/photos/background.jpeg);
-    background-size: cover;
+    background-size: 150px;
     background-position: center;
     background-repeat: repeat;
 }
