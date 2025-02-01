@@ -55,15 +55,16 @@ header h1 {
 }
 
 .song-button {
-    background: linear-gradient(to bottom, #f39c12, #e74c3c);
-    border: none;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
     font-size: 1rem;
-    color: white;
+    padding: 15px 20px;
+    /* Adjust padding as needed */
+    background: linear-gradient(to bottom, #f9d423, #ff4e50);
+    border: none;
+    border-radius: 5px;
+    /* Reduced border-radius for rectangular shape */
+    color: #fff;
+    font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
