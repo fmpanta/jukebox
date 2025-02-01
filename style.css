@@ -96,6 +96,10 @@ video {
 
 footer {
     margin-top: 20px;
+    background-image: url(/photos/background.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
 }
 
 /* Editable List Section */
