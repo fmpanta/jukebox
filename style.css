@@ -28,11 +28,12 @@ header h1 {
 }
 
 .jukebox-wrapper {
-    background: #2b3fa3;
+    background: rgb(255 255 255 / 50%);
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 8px 15px rgba(39, 107, 181, 0.5);
     position: relative;
+    opacity: 0.5;
 }
 
 .jukebox-arc {
@@ -111,39 +112,10 @@ footer {
 .editable-list h2 {
     font-size: 1.5rem;
     margin-bottom: 10px;
+    text-shadow: 0 0 10px #ffe57f;
 }
 
 .editable-list p {
     font-size: 1rem;
     margin-bottom: 20px;
-}
-
-/* Styles for screens smaller than 768px (tablets, small laptops) */
-@media screen and (max-width: 768px) {
-    body {
-        font-size: 0.9rem;
-        /* 14.4px, a bit smaller font */
-    }
-
-    button {
-        padding: 0.9em 1.8em;
-        /* Slightly smaller button */
-        font-size: 0.9rem;
-        /* Slightly smaller font */
-    }
-}
-
-/* Styles for screens smaller than 480px (phones) */
-@media screen and (max-width: 480px) {
-    body {
-        font-size: 0.8rem;
-        /* 12.8px for better mobile readability */
-    }
-
-    button {
-        padding: 0.8em 1.6em;
-        /* Even smaller button */
-        font-size: 0.8rem;
-        /* Even smaller font */
-    }
 }
