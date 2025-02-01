@@ -8,7 +8,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('/photos/background.jpeg');
+    background-image: url('https://raw.githubusercontent.com/fmpanta/jukebox/refs/heads/main/photos/background.jpeg');
     background-size: 50%;
     background-position: top left;
     background-repeat: repeat;
