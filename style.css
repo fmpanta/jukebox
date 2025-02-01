@@ -11,7 +11,7 @@ body {
     background-image: url('/photos/background.jpeg');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
 }
 
 .container {
