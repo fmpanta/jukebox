@@ -9,9 +9,10 @@ body {
     align-items: center;
     height: 100vh;
     background-image: url('/photos/background.jpeg');
-    background-size: 150px;
+    background-size: 50%;
     background-position: top left;
     background-repeat: repeat;
+    min-height: 100vh;
 }
 
 .container {
