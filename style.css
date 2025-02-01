@@ -123,6 +123,18 @@ footer {
     color: rgb(53, 49, 43);
 }
 
+iframe {
+    width: 100%;
+    height: 60vh;
+    /* This allows for a flexible height */
+    border: none;
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+    /* Centering it properly */
+    pointer-events: auto;
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 0 10px;
