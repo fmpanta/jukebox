@@ -27,7 +27,7 @@ body {
 header h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    text-shadow: 0 0 10px #b8a761;
 }
 
 .jukebox-wrapper {
@@ -120,7 +120,7 @@ footer {
 .editable-list p {
     font-size: 1rem;
     margin-bottom: 20px;
-    color: rgb(218, 190, 152);
+    color: rgb(53, 49, 43);
 }
 
 @media (max-width: 768px) {
