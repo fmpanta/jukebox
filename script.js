@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to update view count display
     function updateViewCount(songName) {
         let count = localStorage.getItem(songName) || 0;
-        viewCounter.textContent = count;
+        viewCounter.textContent = `${count} 👀`;
     }
 
     // Event listener for song selection buttons
@@ -24,10 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
             localStorage.setItem(songName, count);
 
             // Update the displayed counter
-            let countElement = document.getElementById(`count-${songName}`);
-            if (countElement) {
-                countElement.textContent = count;
-            }
+            updateViewCount(songName);
 
             console.log(`${songName} has been played ${count} times.`);
         });
@@ -36,10 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initialize view counts when page loads
     songButtons.forEach((button) => {
         let songName = button.textContent.trim();
-        let countElement = document.getElementById(`count-${songName}`);
-        if (countElement) {
-            countElement.textContent = localStorage.getItem(songName) || 0;
-        }
+        updateViewCount(songName); // Update view count for each song on page load
     });
 
     // Function to play the selected song in the iframe
