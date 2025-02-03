@@ -137,8 +137,6 @@ iframe {
 
 #view-count {
     display: none;
-    color: black;
-    text-shadow: 0 0 10px #ffe57f;
 }
 
 @media (max-width: 768px) {
