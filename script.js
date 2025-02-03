@@ -3,44 +3,49 @@ document.addEventListener('DOMContentLoaded', function () {
     const videoPlayer = document.getElementById('video-player');
     const songRequestForm = document.getElementById('song-request-form');
     const songRequestInput = document.getElementById('song-request');
+    const viewCounter = document.getElementById('view-count')
+
+    // Function to update view count display
+    function updateViewCount(songName) {
+        let count = localStorage.getItem(songName) || 0;
+        viewCounter.textContent = count;
+    }
 
     // Event listener for song selection buttons
     songButtons.forEach(button => {
         button.addEventListener('click', function () {
             const videoUrl = button.getAttribute('data-video');
             playSong(videoUrl);
-        });
-    });
-
-    // Count number of views
-    songButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const videoURL = button.getAttribute("data-video");
-            cideoPlayer.src = videoURL;
 
             // Track play count
             let songName = button.textContent.trim();
             let count = localStorage.getItem(songName) || 0;
-            localStorage.setItem(songName, parseInt(count) + 1);
+            count = parseInt(count) + 1;
+            localStorage.setItem(songName, count);
 
-            console.log(`${songName} has been played ${parseInt(count) + 1} times.`);
+            // Update the displayed counter
+            let countElement = document.getElementById(`count-${songName}`);
+            if (countElement) {
+                countElement.textContent = count;
+            }
+
+            console.log(`${songName} has been played ${count} times.`);
         });
-
     });
 
-    document.querySelectorAll(".song-button").forEach((button) => {
-        let songName = button.textContent.trim(); // Get the song name from the button text
+    // Initialize view counts when page loads
+    songButtons.forEach((button) => {
+        let songName = button.textContent.trim();
         let countElement = document.getElementById(`count-${songName}`);
         if (countElement) {
             countElement.textContent = localStorage.getItem(songName) || 0;
         }
     });
 
-
     // Function to play the selected song in the iframe
     function playSong(videoUrl) {
         if (videoUrl.includes('google.com')) {
-            // If it's a Google Drive video, we can use an iframe directly
+            // If it's a Google Drive video, use an iframe
             videoPlayer.style.display = 'block';
             videoPlayer.src = videoUrl;
         } else {
@@ -57,10 +62,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const requestedSong = songRequestInput.value.trim();
         if (requestedSong) {
             alert(`A nova música solicitada foi: ${requestedSong}`);
-            // Reset the input field
-            songRequestInput.value = '';
+            songRequestInput.value = ''; // Reset input field
         }
     });
 });
+
 
 
