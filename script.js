@@ -47,6 +47,10 @@ document.addEventListener('DOMContentLoaded', function () {
             videoPlayer.style.display = 'block';
             videoPlayer.src = videoUrl;
         }
+
+        // Show the view count when a song is played
+        const viewCountElement = document.getElementById('view-count');
+        viewCountElement.style.display = 'inline';
     }
 
     // Handle song request form submission
