@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Track play count
             let songName = button.textContent.trim();
             let count = localStorage.getItem(songName) || 0;
-            count += 1;
+            count = parseInt(count) + 1;
             localStorage.setItem(songName, count);
 
             // Update the displayed counter
