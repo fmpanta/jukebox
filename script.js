@@ -12,18 +12,23 @@ document.addEventListener('DOMContentLoaded', function () {
     //}
 
     function updateViewCount(songName) {
-        fetch("https://script.google.com/macros/s/AKfycbzI5kIOzKoek1QXMrl8vUnHymX7zlE2M3KVoj_CLfg0Oj0kU9IN9wW8IrxMRyPW2uQg/exec?name=" + encodeURIComponent(songName))
+        fetch("https://script.google.com/macros/s/AKfycbywgv3nqPUXBxWYQvLAsWpNu7cj0dFJxyosad9-jRGKiw4ptgVSXwlo7Z6lUAoy32s2/exec")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("view-count").textContent = data[songName] || 0;
+            });
+
+        fetch("https://script.google.com/macros/s/AKfycbywgv3nqPUXBxWYQvLAsWpNu7cj0dFJxyosad9-jRGKiw4ptgVSXwlo7Z6lUAoy32s2/exec", {
+            method: "POST",
+            body: JSON.stringify({ song: songName }),
+            headers: { "Content-Type": "application/json" }
+        })
             .then(response => response.json())
             .then(data => {
                 document.getElementById("view-count").textContent = data.views;
             });
-
-        fetch("https://script.google.com/macros/s/AKfycbzI5kIOzKoek1QXMrl8vUnHymX7zlE2M3KVoj_CLfg0Oj0kU9IN9wW8IrxMRyPW2uQg/exec", {
-            method: "POST",
-            body: JSON.stringify({ song: songName }),
-            headers: { "Content-Type": "application/json" }
-        });
     }
+
 
 
     // Event listener for song selection buttons
