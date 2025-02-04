@@ -12,13 +12,13 @@ document.addEventListener('DOMContentLoaded', function () {
     //}
 
     function updateViewCount(songName) {
-        fetch("https://script.google.com/macros/s/AKfycbywgv3nqPUXBxWYQvLAsWpNu7cj0dFJxyosad9-jRGKiw4ptgVSXwlo7Z6lUAoy32s2/exec")
+        fetch("https://script.google.com/macros/s/AKfycbyXzAXLEEYPRGp7RUCV6L5axxRjsv7pRHu4Nz3E64htp15AMC2BOCxBl4BDDi9eD2xC/exec")
             .then(response => response.json())
             .then(data => {
                 document.getElementById("view-count").textContent = data[songName] || 0;
             });
 
-        fetch("https://script.google.com/macros/s/AKfycbywgv3nqPUXBxWYQvLAsWpNu7cj0dFJxyosad9-jRGKiw4ptgVSXwlo7Z6lUAoy32s2/exec", {
+        fetch("https://script.google.com/macros/s/AKfycbyXzAXLEEYPRGp7RUCV6L5axxRjsv7pRHu4Nz3E64htp15AMC2BOCxBl4BDDi9eD2xC/exec", {
             method: "POST",
             body: JSON.stringify({ song: songName }),
             headers: { "Content-Type": "application/json" }
