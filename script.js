@@ -6,10 +6,25 @@ document.addEventListener('DOMContentLoaded', function () {
     const viewCounter = document.getElementById('view-count')
 
     // Function to update view count display
+    //function updateViewCount(songName) {
+    //    let count = localStorage.getItem(songName) || 0;
+    //    viewCounter.textContent = `${count} 👀`;
+    //}
+
     function updateViewCount(songName) {
-        let count = localStorage.getItem(songName) || 0;
-        viewCounter.textContent = `${count} 👀`;
+        fetch("https://script.google.com/macros/s/AKfycbzI5kIOzKoek1QXMrl8vUnHymX7zlE2M3KVoj_CLfg0Oj0kU9IN9wW8IrxMRyPW2uQg/exec?name=" + encodeURIComponent(songName))
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("view-count").textContent = data.views;
+            });
+
+        fetch("https://script.google.com/macros/s/AKfycbzI5kIOzKoek1QXMrl8vUnHymX7zlE2M3KVoj_CLfg0Oj0kU9IN9wW8IrxMRyPW2uQg/exec", {
+            method: "POST",
+            body: JSON.stringify({ song: songName }),
+            headers: { "Content-Type": "application/json" }
+        });
     }
+
 
     // Event listener for song selection buttons
     songButtons.forEach(button => {
@@ -64,6 +79,3 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-
-
-
