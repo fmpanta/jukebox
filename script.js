@@ -63,4 +63,19 @@ document.addEventListener('DOMContentLoaded', function () {
             songRequestInput.value = ''; // Reset input field
         }
     });
+
+    // Shuffle Button Logic
+    const shuffleButton = document.getElementById('shuffle-button');
+
+    shuffleButton.addEventListener('click', function () {
+        if (songButtons.length === 0) return; // Prevent errors if no songs exist
+
+        // Pick a random song
+        const randomIndex = Math.floor(Math.random() * songButtons.length);
+        const randomSong = songButtons[randomIndex];
+
+        // Simulate a button click on the chosen song
+        randomSong.click();
+    });
+
 });
