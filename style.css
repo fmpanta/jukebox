@@ -145,6 +145,34 @@ iframe {
     z-index: 9999;
 }
 
+#treasure-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+#treasure-content h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+#treasure-content p {
+    color: #555;
+}
+
+#close-treasure {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #ff4e50;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
 #view-count {
     display: none;
 }
