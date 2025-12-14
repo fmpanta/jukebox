@@ -5,6 +5,40 @@ document.addEventListener('DOMContentLoaded', function () {
     const songRequestInput = document.getElementById('song-request');
     const viewCounter = document.getElementById('view-count')
 
+    // -----------------------------
+    // Treasure Hunt Popup (on load)
+    // -----------------------------
+    document.addEventListener("DOMContentLoaded", () => {
+        // Create overlay
+        const overlay = document.createElement("div");
+        overlay.id = "treasure-overlay";
+
+
+        // Create popup box
+        const popup = document.createElement("div");
+        popup.id = "treasure-popup";
+
+
+        popup.innerHTML = `
+        <h2>🎉 Congratulations!</h2>
+        <p>You have been selected to participate in a <strong>Treasure Hunt</strong> to try and win a prize.</p>
+        <button id="start-treasure">Start the Treasure Hunt</button>
+        `;
+
+
+        overlay.appendChild(popup);
+        document.body.appendChild(overlay);
+
+
+        // Start button handler (you can extend this later)
+        document.getElementById("start-treasure").addEventListener("click", () => {
+            overlay.remove(); // close popup
+            // future treasure hunt logic goes here
+        });
+    });
+
+
+
     // Function to update view count display
     function updateViewCount(songName) {
         let count = localStorage.getItem(songName) || 0;
