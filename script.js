@@ -31,11 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         overlay.remove(); // close popup
         // future treasure hunt logic goes here
     });
-});
 
-
-
-document.addEventListener('DOMContentLoaded', function () {
     const songButtons = document.querySelectorAll('.song-button');
     const videoPlayer = document.getElementById('video-player');
     const songRequestForm = document.getElementById('song-request-form');
