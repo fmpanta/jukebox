@@ -1,45 +1,46 @@
+
+// -----------------------------
+// Treasure Hunt Popup (on load)
+// -----------------------------
+document.addEventListener("DOMContentLoaded", () => {
+    // Create overlay
+    const overlay = document.createElement("div");
+    overlay.id = "treasure-overlay";
+
+
+    // Create popup box
+    const popup = document.createElement("div");
+    popup.id = "treasure-popup";
+
+    const startHuntBtn = document.getElementById("start-hunt-btn");
+    const treasureContent = document.getElementById("treasure-content");
+
+    startHuntBtn.addEventListener("click", () => {
+        startHuntBtn.style.display = "none";     // Hide button
+        treasureContent.style.display = "block"; // Show hunt text
+    });
+
+
+
+    overlay.appendChild(popup);
+    document.body.appendChild(overlay);
+
+
+    // Start button handler (you can extend this later)
+    document.getElementById("start-treasure").addEventListener("click", () => {
+        overlay.remove(); // close popup
+        // future treasure hunt logic goes here
+    });
+});
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
     const songButtons = document.querySelectorAll('.song-button');
     const videoPlayer = document.getElementById('video-player');
     const songRequestForm = document.getElementById('song-request-form');
     const songRequestInput = document.getElementById('song-request');
     const viewCounter = document.getElementById('view-count')
-
-    // -----------------------------
-    // Treasure Hunt Popup (on load)
-    // -----------------------------
-    document.addEventListener("DOMContentLoaded", () => {
-        // Create overlay
-        const overlay = document.createElement("div");
-        overlay.id = "treasure-overlay";
-
-
-        // Create popup box
-        const popup = document.createElement("div");
-        popup.id = "treasure-popup";
-
-        const startHuntBtn = document.getElementById("start-hunt-btn");
-        const treasureContent = document.getElementById("treasure-content");
-
-        startHuntBtn.addEventListener("click", () => {
-            startHuntBtn.style.display = "none";     // Hide button
-            treasureContent.style.display = "block"; // Show hunt text
-        });
-
-
-
-        overlay.appendChild(popup);
-        document.body.appendChild(overlay);
-
-
-        // Start button handler (you can extend this later)
-        document.getElementById("start-treasure").addEventListener("click", () => {
-            overlay.remove(); // close popup
-            // future treasure hunt logic goes here
-        });
-    });
-
-
 
     // Function to update view count display
     function updateViewCount(songName) {
