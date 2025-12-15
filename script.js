@@ -18,20 +18,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const popup = document.createElement("div");
         popup.id = "treasure-popup";
 
-
-        popup.innerHTML = `
-        <h2>🎉 Congratulations!</h2>
-        <p>You have been selected to participate in a <strong>Treasure Hunt</strong> to try and win a prize.</p>
-        <button id="start-treasure">Start the Treasure Hunt</button>
-        `;
-
         const startHuntBtn = document.getElementById("start-hunt-btn");
         const treasureContent = document.getElementById("treasure-content");
-        const treasureIntro = document.getElementById("treasure-intro");
 
         startHuntBtn.addEventListener("click", () => {
             startHuntBtn.style.display = "none";     // Hide button
-            treasureIntro.style.display = "none";    // Hide intro text
             treasureContent.style.display = "block"; // Show hunt text
         });
 
