@@ -25,6 +25,17 @@ document.addEventListener('DOMContentLoaded', function () {
         <button id="start-treasure">Start the Treasure Hunt</button>
         `;
 
+        const startHuntBtn = document.getElementById("start-hunt-btn");
+        const treasureContent = document.getElementById("treasure-content");
+        const treasureIntro = document.getElementById("treasure-intro");
+
+        startHuntBtn.addEventListener("click", () => {
+            startHuntBtn.style.display = "none";     // Hide button
+            treasureIntro.style.display = "none";    // Hide intro text
+            treasureContent.style.display = "block"; // Show hunt text
+        });
+
+
 
         overlay.appendChild(popup);
         document.body.appendChild(overlay);
