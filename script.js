@@ -3,28 +3,85 @@
 // Treasure Hunt Popup (on load)
 // -----------------------------
 document.addEventListener("DOMContentLoaded", () => {
-    // Create overlay
-    const overlay = document.createElement("div");
-    overlay.id = "treasure-overlay";
-
-
-    // Create popup box
-    const popup = document.createElement("div");
-    popup.id = "treasure-popup";
 
     const startHuntBtn = document.getElementById("start-hunt-btn");
     const treasureContent = document.getElementById("treasure-content");
 
+    const tarefa1Btn = document.getElementById("tarefan1-btn");
+    const tarefa1 = document.getElementById("tarefa-n1");
+
     startHuntBtn.addEventListener("click", () => {
-        startHuntBtn.style.display = "none";     // Hide button
-        treasureContent.style.display = "block"; // Show hunt text
+        startHuntBtn.style.display = "none";
+        treasureContent.style.display = "block";
     });
 
+    tarefa1Btn.addEventListener("click", () => {
+        unlockTask(event.currentTarget);
+        startHuntBtn.style.display = "none";
+        tarefa1.style.display = "block";
+        tarefa1.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+
+    const skyContainer = document.getElementById("sky-container");
+    const skyFeedback = document.getElementById("sky-feedback");
+
+    const hints = [
+        "Estrela Sirius",
+        "Estrela do Norte",
+        "Estrela Polaris",
+        "Estrela Betelgeuse",
+        "Estrela Rigel",
+        "Estrela Alpha Centauri",
+        "Estrela Antares",
+        "Estrela Canopus",
+        "Estrela Vega",
+        "Estrela Inês Basílio" // ← correct one
+    ];
+
+    const STAR_COUNT = 10;
+    const CORRECT_STAR_INDEX = Math.floor(Math.random() * STAR_COUNT);
+
+    // Generate stars
+    for (let i = 0; i < STAR_COUNT; i++) {
+        const star = document.createElement("div");
+
+        star.classList.add("star");
+
+        // Random position
+        star.style.left = Math.random() * 100 + "%";
+        star.style.top = Math.random() * 100 + "%";
+
+        // Mark one as correct
+        if (i === CORRECT_STAR_INDEX) {
+            star.dataset.correct = "true";
+            star.classList.add("correct");
+            star.dataset.hint = hints[9];
+        } else {
+            star.dataset.hint = hints[i % (hints.length - 1)];
+        }
+
+        star.addEventListener("click", () => {
+            if (star.dataset.correct) {
+                skyFeedback.textContent = "✨ Encontraste a estrela mais brilhante";
+                star.style.boxShadow = "0 0 15px gold";
+                star.style.transform = "scale(2)";
+                unlockTask3();
+            } else {
+                skyFeedback.textContent = "Nope.";
+            }
+        });
+
+        skyContainer.appendChild(star);
+    }
+
+    const tarefa3Div = document.getElementById('tarefan3-div');
+
+    const tarefa3Btn = document.getElementById("tarefan3-btn");
 
 
-    overlay.appendChild(popup);
-    document.body.appendChild(overlay);
-
+    function unlockTask3() {
+        tarefa3Btn.style.display = "block";
+    }
 
     // Start button handler (you can extend this later)
     document.getElementById("start-treasure").addEventListener("click", () => {
@@ -62,6 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(`${songName} has been played ${count} times.`);
         });
     });
+
 
     // Initialize view counts when page loads
     songButtons.forEach((button) => {
@@ -112,3 +170,72 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+function unlockTask(button) {
+    button.textContent = button.textContent.replace("🔒", "🔓");
+    button.classList.add("unlocking");
+
+    if (button.id === "tesouro-btn") {
+        if (button.id === "tesouro-btn") {
+            console.log("You unlocked the tesouro button!");
+
+            const container = document.getElementById("treasure-container");
+            container.innerHTML = ""; // Clear previous content if any
+
+            const treasureMsg = document.getElementById("treasure-msg");
+            treasureMsg.style.display = 'block';
+
+            // Array of media objects
+            const mediaList = [
+                { type: "video", src: "tesouro/Tesouro1.mp4" },
+                { type: "image", src: "tesouro/Tesouro2.jpeg" },
+                { type: "image", src: "tesouro/Tesouro4.gif" },
+                { type: "image", src: "tesouro/WhatsApp Image 2025-04-01 at 06.01.01.jpeg" },
+                { type: "image", src: "tesouro/WhatsApp Image 2025-04-02 at 21.12.21.jpeg" },
+                { type: "image", src: "tesouro/WhatsApp Image 2025-04-23 at 00.31.37.jpeg" },
+                { type: "image", src: "tesouro/WhatsApp Image 2025-05-11 at 11.40.35.jpeg" },
+                { type: "image", src: "tesouro/WhatsApp Image 2025-06-20 at 21.36.08.jpeg" },
+                { type: "image", src: "tesouro/WhatsApp Image 2025-07-21 at 13.55.11.jpeg" },
+                { type: "image", src: "tesouro/WhatsApp Image 2025-08-05 at 22.37.13.jpeg" },
+                { type: "image", src: "tesouro/WhatsApp Image 2025-09-19 at 10.10.26.jpeg" },
+                { type: "video", src: "tesouro/WhatsApp Video 2025-01-06 at 15.19.30.mp4" },
+                { type: "video", src: "tesouro/WhatsApp Video 2025-01-12 at 23.32.14.mp4" },
+                { type: "video", src: "tesouro/WhatsApp Video 2025-05-11 at 17.54.17.mp4" },
+                { type: "video", src: "tesouro/WhatsApp Video 2025-08-30 at 23.18.33.mp4" },
+                { type: "video", src: "tesouro/WhatsApp Video 2025-09-07 at 19.44.47.mp4" },
+                { type: "video", src: "tesouro/WhatsApp Video 2025-11-03 at 17.48.13.mp4" },
+                { type: "video", src: "tesouro/WhatsApp Video 2025-11-10 at 21.44.50.mp4" },
+            ];
+
+            //https://raw.githubusercontent.com/fmpanta/jukebox/refs/heads/main/photos/portugal.jpeg"
+
+            // Loop through media and create elements
+            mediaList.forEach(media => {
+                let element;
+                if (media.type === "image") {
+                    element = document.createElement("img");
+                    element.src = media.src;
+                    element.style.width = "200px"; // optional styling
+                    element.style.margin = "10px";
+                } else if (media.type === "video") {
+                    element = document.createElement("video");
+                    element.src = media.src;
+                    element.controls = true;
+                    element.style.width = "300px";
+                    element.style.margin = "10px";
+                } else if (media.type === "audio") {
+                    element = document.createElement("audio");
+                    element.src = media.src;
+                    element.controls = true;
+                    element.style.display = "block";
+                    element.style.margin = "10px 0";
+                }
+
+                container.appendChild(element);
+            });
+
+        }
+    }
+}
+
+
