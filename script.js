@@ -2,6 +2,59 @@
 // -----------------------------
 // Treasure Hunt Popup (on load)
 // -----------------------------
+
+function closeTreasureHunt() {
+    const overlay = document.getElementById('treasure-overlay');
+    const jukebox = document.querySelector('.container');
+
+    overlay.remove(); // remove overlay
+    jukebox.style.display = 'block'; // make sure it's visible
+
+    // Attach song button listeners AFTER the overlay is gone
+    const songButtons = document.querySelectorAll('.song-button');
+    const videoPlayer = document.getElementById('video-player');
+    const viewCounter = document.getElementById('view-count');
+
+    songButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const videoUrl = button.getAttribute('data-video');
+            videoPlayer.style.display = 'block';
+            videoPlayer.src = videoUrl;
+
+            const songName = button.textContent.trim();
+            let count = parseInt(localStorage.getItem(songName) || 0) + 1;
+            localStorage.setItem(songName, count);
+
+            viewCounter.textContent = `${count} 👀`;
+            viewCounter.style.display = 'inline';
+
+            console.log(`${songName} has been played ${count} times.`);
+        });
+    });
+
+    jukebox.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
+
+    // Shuffle Button Logic
+    const shuffleButton = document.getElementById('shuffle-button');
+    if (shuffleButton) {
+        shuffleButton.addEventListener('click', function () {
+            const songButtons = document.querySelectorAll('.song-button');
+            if (songButtons.length === 0) return;
+
+            const randomIndex = Math.floor(Math.random() * songButtons.length);
+            const randomSong = songButtons[randomIndex];
+
+            // Trigger click on the random song button
+            randomSong.click();
+        });
+    }
+
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const startHuntBtn = document.getElementById("start-hunt-btn");
@@ -102,22 +155,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Event listener for song selection buttons
-    songButtons.forEach(button => {
-        button.addEventListener('click', function () {
+    document.querySelector('.container').addEventListener('click', function (e) {
+        if (e.target.classList.contains('song-button')) {
+            const button = e.target;
             const videoUrl = button.getAttribute('data-video');
             playSong(videoUrl);
 
-            // Track play count
             let songName = button.textContent.trim();
             let count = localStorage.getItem(songName) || 0;
             count = parseInt(count) + 1;
             localStorage.setItem(songName, count);
 
-            // Update the displayed counter
             updateViewCount(songName);
 
             console.log(`${songName} has been played ${count} times.`);
-        });
+        }
     });
 
 
@@ -237,5 +289,3 @@ function unlockTask(button) {
         }
     }
 }
-
-
